@@ -1,4 +1,5 @@
-const searchEl = document.querySelector(".search-container");
+const cityEl = document.querySelector(".search-container");
+const searchEl = document.querySelector(".search");
 const inputEl = document.getElementById("city_name");
 const cityName = document.getElementById("weather-city");
 const dataTimeEl = document.getElementById("weather-date--time");
@@ -16,16 +17,25 @@ const getCountryCode = (code) => {
   return new Intl.DisplayNames([code], { type: "region" }).of(code);
 };
 
-let city = "kannauj";
-searchEl.addEventListener("submit", (event) => {
+let city = JSON.parse(localStorage.getItem("city"));
+cityEl.addEventListener("submit", (event) => {
   event.preventDefault();
   const name = inputEl.value;
   console.log(name);
+  localStorage.setItem("city", JSON.stringify(name));
   city = name;
   getWeatherData();
   inputEl.value = "";
 });
 
+searchEl.addEventListener("click", () => {
+  const c_name = inputEl.value;
+  localStorage.setItem("city", JSON.stringify(c_name));
+
+  city = c_name;
+  getWeatherData();
+  inputEl.value = "";
+});
 const getDateTime = (dt) => {
   const currentDate = new Date(dt * 1000);
   console.log(currentDate);
@@ -45,9 +55,9 @@ const getDateTime = (dt) => {
 };
 
 //
-const getWeatherData = async (name) => {
+const getWeatherData = async () => {
   const api_key = "213e4a185f3d5454846627a8c2753b12";
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=213e4a185f3d5454846627a8c2753b12`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
 
   try {
     const res = await fetch(url);
@@ -60,9 +70,10 @@ const getWeatherData = async (name) => {
     w_forecastEl.innerHTML = weather[0].main;
     w_iconEl.innerHTML = `<img src="https://openweathermap.org/img/wn/${weather[0].icon}@2x.png" />`;
     dataTimeEl.innerHTML = getDateTime(dt);
-    W_tempEL.innerHTML = (main.temp - 273.15).toFixed(0);
-    minEL.innerHTML = (main.temp_min - 273.15).toFixed(0);
-    maxEl.innerHTML = (main.temp_max - 273.15).toFixed(0);
+    W_tempEL.innerHTML = `${(main.temp - 273.15).toFixed(0)}&#176`;
+    minEL.innerHTML = `Min: ${(main.temp_min - 273.15).toFixed(0)}&#176`;
+    maxEl.innerHTML = `Max: ${(main.temp_max - 273.15).toFixed(0)}&#176`;
+
     FeelLikeEl.innerHTML = `${(main.feels_like - 273.15).toFixed()}&#176`;
     w_humidityEl.innerHTML = `${main.humidity}%`;
     w_WindsEl.innerHTML = ` ${wind.speed} m/s`;
