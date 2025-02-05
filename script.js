@@ -16,8 +16,13 @@ const w_pressure = document.querySelector(".weather_pressure");
 const getCountryCode = (code) => {
   return new Intl.DisplayNames([code], { type: "region" }).of(code);
 };
-
+let w_city = "mumbai";
 let city = JSON.parse(localStorage.getItem("city"));
+w_city = city;
+console.log(w_city);
+if (w_city == null) {
+  w_city = "mumbai";
+}
 cityEl.addEventListener("submit", (event) => {
   event.preventDefault();
   const name = inputEl.value;
@@ -26,6 +31,7 @@ cityEl.addEventListener("submit", (event) => {
   city = name;
   getWeatherData();
   inputEl.value = "";
+  window.location.reload();
 });
 
 searchEl.addEventListener("click", () => {
@@ -35,6 +41,7 @@ searchEl.addEventListener("click", () => {
   city = c_name;
   getWeatherData();
   inputEl.value = "";
+  window.location.reload();
 });
 const getDateTime = (dt) => {
   const currentDate = new Date(dt * 1000);
@@ -57,7 +64,7 @@ const getDateTime = (dt) => {
 //
 const getWeatherData = async () => {
   const api_key = "213e4a185f3d5454846627a8c2753b12";
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${w_city}&appid=${api_key}`;
 
   try {
     const res = await fetch(url);
