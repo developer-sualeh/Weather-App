@@ -19,7 +19,7 @@ body {
 }
 .weather-container {
   background-color: rgba(0, 0, 0, 0.2);
-  width: 30rem;
+  width: 50rem;
   margin: 2rem;
   padding: 2rem;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
@@ -82,12 +82,13 @@ input::placeholder {
 }
 h2 {
   color: #fff;
+  font-size: 2rem;
   letter-spacing: 0.2rem;
   margin-bottom: 0.4rem;
-  font-weight: 600;
+  font-weight: 800;
 }
-p {
-  font-size: 1.2rem;
+#weather-date--time {
+  font-size: 1.5rem;
   letter-spacing: 0.1rem;
 }
 button {
@@ -152,9 +153,21 @@ button {
   html {
     font-size: 52%;
   }
+  .weather-container {
+    width: 40rem;
+  }
+  #weather-date--time {
+    font-size: 1.2rem;
+  }
 }
-@media (width <= 368px) {
+@media (width <= 396px) {
   html {
-    font-size: 45%;
+    font-size: 48%;
+  }
+  #weather-date--time {
+    font-size: 1rem;
+  }
+  .weather-container {
+    width: 30rem;
   }
 }

@@ -19,14 +19,13 @@ const getCountryCode = (code) => {
 let w_city = "mumbai";
 let city = JSON.parse(localStorage.getItem("city"));
 w_city = city;
-console.log(w_city);
 if (w_city == null) {
   w_city = "mumbai";
 }
 cityEl.addEventListener("submit", (event) => {
   event.preventDefault();
   const name = inputEl.value;
-  console.log(name);
+
   localStorage.setItem("city", JSON.stringify(name));
   city = name;
   getWeatherData();
@@ -45,7 +44,6 @@ searchEl.addEventListener("click", () => {
 });
 const getDateTime = (dt) => {
   const currentDate = new Date(dt * 1000);
-  console.log(currentDate);
 
   const options = {
     weekday: "long",
@@ -57,7 +55,6 @@ const getDateTime = (dt) => {
   };
 
   const formatter = new Intl.DateTimeFormat("en-US", options);
-  console.log(formatter);
   return formatter.format(currentDate);
 };
 
@@ -69,7 +66,6 @@ const getWeatherData = async () => {
   try {
     const res = await fetch(url);
     const data = await res.json(res);
-    console.log(data);
 
     const { main, name, sys, weather, dt, visibility, wind } = data;
     cityName.innerHTML = `${name},${getCountryCode(sys.country)}`;
