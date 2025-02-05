@@ -19,9 +19,15 @@ body {
 }
 .weather-container {
   background-color: rgba(0, 0, 0, 0.2);
-  width: 40rem;
+  width: 30rem;
+  margin: 2rem;
   padding: 2rem;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
 }
 .search-bar {
   display: flex;
@@ -81,7 +87,7 @@ h2 {
   font-weight: 600;
 }
 p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   letter-spacing: 0.1rem;
 }
 button {
@@ -145,5 +151,10 @@ button {
 @media (width<= 768px) {
   html {
     font-size: 52%;
+  }
+}
+@media (width<= 368px) {
+  html {
+    font-size: 45%;
   }
 }
