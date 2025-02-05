@@ -148,12 +148,12 @@ button {
   }
 }
 
-@media (width<= 768px) {
+@media (width <= 768px) {
   html {
     font-size: 52%;
   }
 }
-@media (width<= 368px) {
+@media (width <= 368px) {
   html {
     font-size: 45%;
   }
