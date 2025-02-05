@@ -20,7 +20,7 @@
           <input
             class="input"
             type="text"
-            id="search"
+            id="city_name"
             placeholder="Search for a city"
           />
           <i class="fa-solid fa-magnifying-glass search"></i>
@@ -28,19 +28,19 @@
       </div>
       <div class="search-content">
         <h2>
-          <span>Indore, MP</span>
+          <span id="weather-city">Indore, MP</span>
         </h2>
-        <p>friday,february 02, 2025 at 11:00 PM</p>
+        <p id="weather-date--time">friday,february 02, 2025 at 11:00 PM</p>
         <div class="weather-condition">
-          <button>Clouds</button>
+          <button id="weather-forecast">Clouds</button>
         </div>
         <div class="weather-icon">
-          <i class="fa-solid fa-cloud"></i>
+        
         </div>
-        <p class="degree"><span>278</span></p>
+        <p class="temperature"><span>278</span></p>
         <div class="min-max">
-          <p>Min: <span>22</span></p>
-          <p>Max: <span>32</span></p>
+          <p id="min">Min: <span>22</span></p>
+          <p id="max">Max: <span>32</span></p>
         </div>
       </div>
 
@@ -65,20 +65,21 @@
 
           <i class="fa-solid fa-droplet"></i>
           <div>
-            <p>Feels Like</p>
-            <p class="weather_feelsLike">15&#176</p>
+            <p>Winds</p>
+            <p class="weather_winds">15&#176</p>
           </div>
         </div>
 
         <div class="weather_card">
             <i class="fa-solid fa-droplet"></i>
             <div>
-                <p>Humidity</p>
-                <p class="weather_humidity">15&#176</p>
+                <p>Pressure</p>
+                <p class="weather_pressure">15&#176</p>
             </div>
         </div>
   
       </div>
     </section>
+    <script src="script.js"></script>
   </body>
 </html>

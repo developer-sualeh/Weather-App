@@ -87,7 +87,7 @@ p {
 button {
   display: block;
   margin-top: 1rem;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   width: 10rem;
   padding: 1rem;
   background-color: black;
@@ -101,12 +101,12 @@ button {
   -ms-border-radius: 2rem;
   -o-border-radius: 2rem;
 }
-.weather-icon {
+/* .weather-icon {
   font-size: 4rem;
-}
+} */
 
-.degree {
-  margin-top: 2rem;
+.temperature {
+  /* margin-top: 2rem; */
   margin-bottom: 1rem;
   font-size: 2rem;
 }
